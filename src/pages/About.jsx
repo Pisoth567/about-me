@@ -5,8 +5,8 @@ const About = ({ img, detail, name, age,gender, address,phone,gmail }) => {
       className="container d-flex gap-5 justify-content-between align-items-center vh-100 py-5"
     >
       <div className="about-left w-25">
-        <div className="spin">
-          <img className="w-100 my-img" src={img} alt="" />
+        <div className="">
+          <img className="my-shadow rounded-5 w-100 my-img" src={img} alt="" />
         </div>
       </div>
       <div className="about-right w-75">

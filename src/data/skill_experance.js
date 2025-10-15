@@ -1,10 +1,10 @@
-import bootstrap_logo from "../assets/skills/bootstrap_logo.jpg"
-import css_logo from "../assets/skills/css_logo.jpg"
-import html_logo from "../assets/skills/html_logos.jpg"
-import js_logo from "../assets/skills/js_logos.webp"
-import python_logo from "../assets/skills/python_logo.jpg"
+import bootstrap_logo from "../assets/skills/bootstrap.png"
+import css_logo from "../assets/skills/Css.png"
+import html_logo from "../assets/skills/Html.png"
+import python_logo from "../assets/skills/python.png"
+import tailwind_css_logo from "../assets/skills/Tailwind.png"
 import react_logo from "../assets/skills/react_logo2.svg"   
-import tailwind_css_logo from "../assets/skills/tailwind_logo.jpg"
+import js_logo from "../assets/skills/js_logos.webp"
 export const skills = [
   {
     name: "HTML",

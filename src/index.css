@@ -6,15 +6,13 @@
   scroll-behavior: smooth;
 }
 
+:root{
+  --border-color: linear-gradient(90deg, red, blue);
+}
+
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
-  inherits: false;
-}
-
-@property --go-to {
-  syntax: "<goto>";
-  initial-value: 0px;
   inherits: false;
 }
 
@@ -212,9 +210,10 @@ tbody td {
 
 .spin {
   display: block;
+  box-sizing: unset;
   width: 100%;
-  height: 100%;
   border-radius: 20px;
+  background-color: #ff0066;
   position: relative;
 }
 
@@ -222,12 +221,11 @@ tbody td {
 .spin::before {
   content: "";
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 320px;
+  height: 424px;
   padding: 10px;
   border-radius: 20px;
-  overflow: hidden;
-  background-image: conic-gradient(from var(--angle), #f5f5f5);
+  background-image: conic-gradient(from var(--angle), transparent, #f5f5f5 ,rgb(12, 219, 150));
   position: absolute;
   translate: -50% -50%;
   top: 50%;
@@ -237,8 +235,8 @@ tbody td {
 }
 
 .about-left > .spin::before {
-  filter: blur(10px);
-  opacity: 0.5;
+  filter: blur(15px);
+  opacity: 0.7;
 }
 
 @keyframes spin {
@@ -263,12 +261,122 @@ tbody td {
   background-image: linear-gradient(45deg, red , blue);
 }
 
-.card{
+.line{
+  height: 1.5px;
   background-color: #f5f5f5;
+  margin-bottom: 30px;
 }
 
-.card > .logo{
+.cards{
+  background: rgb(50, 50, 50);
+  padding: 10px 20px;
+  margin-left: 3px;
+  border-radius: 25px;
+  border: 1px solid darkgray;
+  position: relative;
+  transition: all .3s ease;
+}
+
+.cards:hover{
+  transform: scale(1.07); 
+  box-shadow: 0 0 10px #f5f5f5;
+  cursor: pointer;
+}
+
+.cards:hover>.logo{
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px #fff);
+}
+/* card animtion */
+/* .cards::after, .cards::before{
+  content: '';
+  position: absolute;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border-radius: 25px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  animation: spin 3s linear infinite;
+  transition: all 1s ease;
+}
+
+.cards:hover.cards::after{
+  background-image: conic-gradient(from var(--angle),transparent 70%, blue);
+}
+
+.cards::before{
+  filter: blur(25px);
+  opacity: 1;
+} */
+
+/* .cards::after{
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(45deg, red, blue);
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  transform: scale(1.3);
+} */
+
+.cards > .logo{
   width: 100px;
   height: 100px;
   object-fit: cover;
+}
+
+.btn-more{
+  position:absolute;
+  bottom: 0;
+  right: 10%;
+  /* padding: 10px; */
+  margin-bottom: 4px;
+  background-color: transparent;
+  border: none;
+  /* border-bottom: 1px solid #f5f5f5; */
+}
+
+.btn-more::after{
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  border: none;
+  background-color: #00ffff;
+  transition: all .3s ease;
+}
+
+.btn-more:hover.btn-more::after{
+  width: 100%;
+}
+
+
+.descript {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.9);
+  color: white;
+  border-radius: 25px;
+  padding: 15px;
+  text-align: center;
+}
+
+.descript .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
