@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { skills } from "../data/skill_experance";
 const Skill = () => {
-  const [selected, setseLected] = useState(null);
+  const [selected, setseLected] = useState("");
   const handleClick = (name) => {
     setseLected(name);
   };
-  const back = () => setSelected(null)
+
+  const clearSelected = (e) => {
+    e.stopPropagation();
+    setseLected("");
+  };
+
   return (
     <main id="skill" className="container vh-100 py-5">
       <h1 className="title-header">
@@ -31,14 +36,17 @@ const Skill = () => {
               <h5>{s.level}</h5>
               <p className="text-success fw-bold">{s.experience}</p>
             </div>
+
+            {/* -------------------------------------------------- */}
             {selected === s.name && (
-              <div className="descript position-absolute">
-                <button onClick={back} className="close-btn">
+              <div className={`descript position-absolute`}>
+                <button onClick={(e) => clearSelected(e)} className="close-btn">
                   <i className="fa-solid fa-circle-xmark"></i>
                 </button>
                 <p>{s.description}</p>
               </div>
             )}
+            {/* -------------------------------------------------- */}
           </article>
         ))}
       </div>
